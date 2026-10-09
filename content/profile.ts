@@ -17,7 +17,7 @@ export const profile = {
   // Set to a file in /public (e.g. "/Muhammad-Shahwaiz-CV.pdf") to show a CV button.
   cvPath: "/Muhammad-Shahwaiz-CV.pdf" as string | null,
   // Set to an image in /public to replace the monogram.
-  headshotPath: "/images/headshot.webp" as string | null,
+  headshotPath: "/images/portrait.webp" as string | null,
   headline: "AI systems. Clear evidence. Human judgment.",
   shortBio:
     "I'm a final-year Software Engineering student and the founder of Menzync. I build Python and TypeScript backends, AI integrations and automated tests, with a particular interest in systems that make their evidence and limitations clear.",

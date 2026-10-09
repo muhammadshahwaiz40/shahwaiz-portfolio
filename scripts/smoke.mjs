@@ -4,7 +4,7 @@
 const base = (process.env.SMOKE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
 const pages = [
-  { path: "/", expect: ["AI systems.", "NextAct", "Menzync", "EmoSense AI", 'id="contact"', "mailto:shahwaizarts@gmail.com", "Download CV", "headshot.webp"] },
+  { path: "/", expect: ["AI systems.", "NextAct", "Menzync", "EmoSense AI", 'id="contact"', "mailto:shahwaizarts@gmail.com", "Download CV", "portrait.webp"] },
   { path: "/work", expect: ["Case studies", "Product prototypes", "Coursework", 'id="clientdesk"'] },
   { path: "/work/nextact", expect: ["My role", "Architecture", "https://nextact.tech"] },
   { path: "/work/menzync", expect: ["My role", "connected to the prototype yet"] },

@@ -8,14 +8,16 @@ export function About() {
       <div className="wrap grid gap-14 lg:grid-cols-12 lg:gap-8">
         <div className="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
           {profile.headshotPath ? (
-            <Image
-              src={profile.headshotPath}
-              alt={`Portrait of ${profile.name}`}
-              width={304}
-              height={380}
-              sizes="(min-width: 1024px) 304px, 80vw"
-              className="h-auto w-full max-w-[19rem] rounded-2xl border border-[var(--rule-dark)]"
-            />
+            <div className="portrait" data-spotlight>
+              <Image
+                src={profile.headshotPath}
+                alt={`Portrait of ${profile.name}`}
+                width={720}
+                height={900}
+                sizes="(min-width: 1024px) 320px, 80vw"
+                className="h-auto w-full"
+              />
+            </div>
           ) : (
             <div className="flex w-full max-w-xs flex-col justify-between gap-10 sm:aspect-[4/5] rounded-2xl border border-[var(--rule-dark)] bg-[var(--raised)] p-7">
               <Monogram className="h-14 w-14" />

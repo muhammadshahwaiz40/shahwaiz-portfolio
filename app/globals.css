@@ -799,3 +799,17 @@ details[open] .plus {
     animation: none !important;
   }
 }
+
+/* ── Portrait: paper card; multiply blends a white photo background into the paper ── */
+.portrait {
+  width: 100%;
+  max-width: 20rem;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  box-shadow: 0 30px 60px -28px rgb(0 0 0 / 0.6);
+}
+.portrait img {
+  display: block;
+  mix-blend-mode: multiply;
+}

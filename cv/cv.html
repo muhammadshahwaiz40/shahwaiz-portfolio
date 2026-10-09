@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muhammad Shahwaiz — CV</title>
+<!-- Source for public/Muhammad-Shahwaiz-CV.pdf. Rebuild with: npm run cv
+     Public-safe: no date of birth, address, phone or student ID. -->
+<style>
+  @page { size: A4; margin: 11mm 13mm 10mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-size: 9pt; line-height: 1.33; color: #171a20; }
+  a { color: inherit; text-decoration: none; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.4pt solid #2c4fd6; padding-bottom: 7pt; }
+  h1 { font-size: 21pt; letter-spacing: -0.4pt; margin: 0; line-height: 1; }
+  .role { margin-top: 4pt; font-size: 10.5pt; color: #2c4fd6; font-weight: 600; }
+  .contact { text-align: right; font-size: 8.6pt; color: #4f535c; line-height: 1.5; }
+  .contact b { color: #171a20; font-weight: 600; }
+  .summary { margin: 8pt 0 2pt; }
+  h2 { font-size: 8.4pt; text-transform: uppercase; letter-spacing: 1.3pt; color: #2c4fd6; margin: 8pt 0 3.5pt; padding-bottom: 2pt; border-bottom: 0.6pt solid #d9d6cd; }
+  .item { margin: 0 0 4.2pt; break-inside: avoid; }
+  .row { display: flex; justify-content: space-between; gap: 8pt; }
+  .title { font-weight: 650; }
+  .meta { color: #4f535c; white-space: nowrap; font-size: 8.6pt; }
+  .sub { color: #4f535c; }
+  ul { margin: 2pt 0 0; padding-left: 11pt; }
+  li { margin: 1pt 0; }
+  .stack { color: #4f535c; font-size: 8.4pt; margin-top: 1.5pt; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14pt; }
+  .tag { display: inline-block; font-size: 7.2pt; font-weight: 700; letter-spacing: 0.6pt; text-transform: uppercase; color: #2c4fd6; border: 0.6pt solid #2c4fd6; border-radius: 6pt; padding: 0 4pt; margin-left: 4pt; vertical-align: 1pt; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Muhammad Shahwaiz</h1>
+    <div class="role">AI Systems &amp; Backend Engineering</div>
+  </div>
+  <div class="contact">
+    <a href="mailto:shahwaizarts@gmail.com"><b>shahwaizarts@gmail.com</b></a> · <a href="https://shahwaiz.me"><b>shahwaiz.me</b></a><br>
+    <a href="https://github.com/muhammadshahwaiz40">github.com/muhammadshahwaiz40</a><br>
+    <a href="https://www.linkedin.com/in/muhammad-shahwaiz-591b60285/">linkedin.com/in/muhammad-shahwaiz-591b60285</a><br>
+    Sialkot, Pakistan · PKT (UTC+5)
+  </div>
+</header>
+
+<p class="summary">Final-year Software Engineering student at UMT Sialkot and co-founder of Menzync. I build Python and TypeScript backends, LLM integrations and automated tests, with a focus on software that shows its evidence, states what it couldn't verify, and leaves important decisions to a person.</p>
+
+<h2>Experience</h2>
+<div class="item">
+  <div class="row"><span><span class="title">AI Intern</span> · FlyRank · Remote</span><span class="meta">Aug 2026 – present</span></div>
+  <ul><li>Audited my recurring work into delegate / collaborate / keep-human categories and set up AI tooling to match.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><span><span class="title">Software Quality Engineering Intern</span> · Big Brains</span><span class="meta">Aug 2026</span></div>
+</div>
+<div class="item">
+  <div class="row"><span><span class="title">Change Makers Ambassador Intern</span> · DataCrumbs</span><span class="meta">May 2026 · 6 weeks</span></div>
+  <ul><li>Community outreach, AI literacy and student engagement.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><span><span class="title">Data Entry Clerk</span> · Silver Star Enterprises, Daska</span><span class="meta">Jan – Mar 2022</span></div>
+</div>
+
+<h2>Projects</h2>
+<div class="item">
+  <div class="row"><span><span class="title">NextAct</span><span class="tag">Live</span> · evidence-oriented verification tool</span><span class="meta"><a href="https://nextact.tech">nextact.tech</a></span></div>
+  <div class="sub">Turns a suspicious message, link, document or payment request into claims, evidence, contradictions, unknowns, a risk level and the safest next step.</div>
+  <ul>
+    <li>Built case-submission and browser-extension APIs with workspace-scoped database access.</li>
+    <li>Wrote SSRF-controlled URL, DNS and TLS evidence collection; adversarial API tests and GitHub Actions checks; Docker/Compose setup.</li>
+    <li>Designed AI adapter interfaces with redaction and output validation; risk levels come from a deterministic engine, never the model.</li>
+  </ul>
+  <div class="stack">Next.js · TypeScript · pnpm monorepo · Zod · Drizzle · Vitest · Manifest V3 extension</div>
+</div>
+<div class="item">
+  <div class="row"><span><span class="title">Menzync</span><span class="tag">Research + prototype</span> · co-founder &amp; FYP developer</span><span class="meta">NIB IV finalist</span></div>
+  <ul>
+    <li>Roman Urdu / English text classification, from a TF-IDF + linear SVM baseline to XLM-RoBERTa, with a Gradio demo.</li>
+    <li>Local FastAPI + SQLite prototype with consent-gated saved history, export and deletion; pytest and Vitest tests for account isolation and validation.</li>
+    <li>Evaluation and data-audit tooling: macro-F1, per-class metrics, confusion matrices, calibration (ECE, Brier), train/test overlap checks.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="row"><span><span class="title">EmoSense AI</span><span class="tag">Prototype</span> · CREATE X 2026 AI App Challenge</span><span class="meta"><a href="https://github.com/muhammadshahwaiz40/EmoSense-AI---Text-Emotional-Intelligence-Platform">GitHub</a></span></div>
+  <ul><li>Express backend: three Gemini endpoints constrained by JSON response schemas, request validation, logging, and labelled rule-based fallbacks when the model is unavailable.</li></ul>
+</div>
+<div class="item">
+  <div class="row"><span><span class="title">Other prototypes</span></span></div>
+  <ul>
+    <li><b>ClientDesk</b> (approval-first WhatsApp CRM; FastAPI, PostgreSQL RLS, Celery) · <b>Aidesk</b> (document-grounded support with citations and human escalation; FAISS, Gemini)</li>
+    <li><b>DocFlow AI</b> (retryable document pipeline) · <b>Beacon</b> (cited knowledge search; Qdrant, Claude) · <b>Vantra</b> (multi-tenant business SaaS)</li>
+  </ul>
+</div>
+
+<div class="two">
+  <div>
+    <h2>Recognition</h2>
+    <div class="item"><span class="title">3rd Place</span>, All Pakistan Prompt Engineering Competition (APPEC) 2026 · score 184.97</div>
+    <div class="item"><span class="title">Finalist</span>, National Idea Bank IV Pre-Incubation 2026 · one of 24 startups selected by ASPIRE Pakistan</div>
+    <div class="item"><span class="title">Top Performer</span>, Generative AI Application Developer, NCEAC-HEC · 2025</div>
+
+    <h2>Training</h2>
+    <div class="item">Start Writing Prompts like a Pro · Google via Coursera · 2026</div>
+    <div class="item">Positive Psychology Specialization Project · University of Pennsylvania via Coursera · 2025</div>
+  </div>
+  <div>
+    <h2>Education</h2>
+    <div class="item">
+      <div class="row"><span class="title">BS Software Engineering</span><span class="meta">2023 – present</span></div>
+      <div class="sub">University of Management and Technology, Sialkot · final year</div>
+      <div class="stack">Deep Learning · NLP · Information Security · Software Quality Engineering · Databases</div>
+    </div>
+    <div class="item">
+      <div class="row"><span class="title">Intermediate, Pre-Medical</span><span class="meta">2019 – 2021</span></div>
+      <div class="sub">Superior College, Daska · Grade A+</div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="item"><b>Core:</b> Python, TypeScript, FastAPI, Express, Next.js, LLM integration (Claude, Gemini), PostgreSQL, SQLite, pytest, Vitest, Docker</div>
+    <div class="item"><b>Also used:</b> Celery/Redis, SQLAlchemy/Alembic, Prisma/Drizzle, Qdrant, FAISS, React, Tailwind</div>
+    <div class="item"><b>Languages:</b> Urdu, Punjabi, English</div>
+  </div>
+</div>
+</body>
+</html>

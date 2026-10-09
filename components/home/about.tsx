@@ -11,9 +11,10 @@ export function About() {
             <Image
               src={profile.headshotPath}
               alt={`Portrait of ${profile.name}`}
-              width={480}
-              height={600}
-              className="h-auto w-full max-w-xs rounded-2xl"
+              width={304}
+              height={380}
+              sizes="(min-width: 1024px) 304px, 80vw"
+              className="h-auto w-full max-w-[19rem] rounded-2xl border border-[var(--rule-dark)]"
             />
           ) : (
             <div className="flex w-full max-w-xs flex-col justify-between gap-10 sm:aspect-[4/5] rounded-2xl border border-[var(--rule-dark)] bg-[var(--raised)] p-7">
@@ -29,7 +30,7 @@ export function About() {
         <div className="lg:col-span-7 lg:col-start-6">
           <p className="eyebrow">About</p>
           <h2 id="about-title" className="h2 mt-4">
-            From transcripts to <span className="serif-em">systems</span>.
+            From pre-med to <span className="serif-em">systems</span>.
           </h2>
           <div className="mt-8 grid gap-5 text-[1.05rem] measure">
             {profile.longBio.map((p) => (

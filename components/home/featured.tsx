@@ -137,7 +137,7 @@ function MenzyncFeature({ p }: { p: Project }) {
         <div className="order-1 lg:sticky lg:top-24 lg:order-2 lg:col-span-6 lg:self-start">
           <Header p={p} index="02" />
           <p className="mt-5 text-sm">
-            <span className="text-[var(--accent-on-dark)]">Finalist, National Idea Bank IV 2026</span>
+            <span className="text-[var(--accent-on-dark)]">National Idea Bank IV 2026 finalist (1 of 24 startups)</span>
             <span className="muted"> · Co-founder &amp; FYP developer</span>
           </p>
           <div className="mt-6">

@@ -15,15 +15,15 @@ export const profile = {
   github: "https://github.com/muhammadshahwaiz40",
   linkedin: "https://www.linkedin.com/in/muhammad-shahwaiz-591b60285/",
   // Set to a file in /public (e.g. "/Muhammad-Shahwaiz-CV.pdf") to show a CV button.
-  cvPath: null as string | null,
+  cvPath: "/Muhammad-Shahwaiz-CV.pdf" as string | null,
   // Set to an image in /public to replace the monogram.
-  headshotPath: null as string | null,
+  headshotPath: "/images/headshot.webp" as string | null,
   headline: "AI systems. Clear evidence. Human judgment.",
   shortBio:
     "I'm a final-year Software Engineering student and co-founder of Menzync. I build Python and TypeScript backends, AI integrations and automated tests, with a particular interest in systems that make their evidence and limitations clear.",
   longBio: [
-    "I'm from Daska and study Software Engineering at the University of Management and Technology in Sialkot. My route here wasn't direct: pre-medical studies first, then data entry, then two years of remote transcription, then software.",
-    "Those jobs were about getting messy information exactly right, and that habit carried over. The work I care about most now is AI software that shows where its answers came from, says what it couldn't check, and leaves the important decisions to a person.",
+    "I'm from Daska and study Software Engineering at the University of Management and Technology in Sialkot. My route here wasn't direct: pre-medical studies first, then data-entry work, then software.",
+    "That early work was about getting messy information exactly right, and the habit carried over. The work I care about most now is AI software that shows where its answers came from, says what it couldn't check, and leaves the important decisions to a person.",
   ],
   aiAssistedNote:
     "I use AI coding tools heavily. I scope the problem, direct the build, review the code, and test it.",

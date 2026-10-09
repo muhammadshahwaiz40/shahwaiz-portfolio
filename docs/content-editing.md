@@ -9,8 +9,8 @@ All public content lives in three typed files in `content/`. Edit them, run `npm
 | Headline, short bio, long bio | `headline`, `shortBio`, `longBio` |
 | Menzync role | `menzyncRole`. Also update the line in `components/home/featured.tsx` (MenzyncFeature) |
 | Show the phone number | `showPhone: true` |
-| Add a CV | Put a public-safe PDF in `public/` (no date of birth, address or student ID), set `cvPath: "/Muhammad-Shahwaiz-CV.pdf"` |
-| Add a portrait | Put an image in `public/images/`, set `headshotPath`. A 4:5 crop works best |
+| Update the CV | Edit `cv/cv.html`, then run `npm run cv` to regenerate `public/Muhammad-Shahwaiz-CV.pdf` (needs Edge or Chrome). Keep it public-safe: no date of birth, address, phone or student ID |
+| Change the portrait | Replace `public/images/headshot.webp` (4:5 crop) and update the width/height in `components/home/about.tsx`. Current image is cropped from the ASPIRE NIB IV finalist card; a higher-resolution photo would look sharper |
 | AI-assisted note | `aiAssistedNote` text, `showAiAssistedNote` on/off |
 | Semester GPA | `semesterGpa.show: true` |
 | Education, coursework, "beyond code" | `education`, `coursework`, `beyondCode` |

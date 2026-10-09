@@ -4,7 +4,7 @@
 const base = (process.env.SMOKE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 
 const pages = [
-  { path: "/", expect: ["AI systems.", "NextAct", "Menzync", "EmoSense AI", 'id="contact"', "mailto:shahwaizarts@gmail.com"] },
+  { path: "/", expect: ["AI systems.", "NextAct", "Menzync", "EmoSense AI", 'id="contact"', "mailto:shahwaizarts@gmail.com", "Download CV", "headshot.webp"] },
   { path: "/work", expect: ["Case studies", "Product prototypes", "Coursework", 'id="clientdesk"'] },
   { path: "/work/nextact", expect: ["My role", "Architecture", "https://nextact.tech"] },
   { path: "/work/menzync", expect: ["My role", "connected to the prototype yet"] },
@@ -46,6 +46,10 @@ for (const path of ["/work/does-not-exist", "/work/clientdesk", "/nope"]) {
   if (res.status !== 404) fail(`${path} should be 404, got ${res.status}`);
   else console.log(`✓ ${path} → 404`);
 }
+
+const cv = await fetch(base + "/Muhammad-Shahwaiz-CV.pdf");
+if (cv.status !== 200 || !(cv.headers.get("content-type") ?? "").includes("pdf")) fail(`CV PDF: ${cv.status} ${cv.headers.get("content-type")}`);
+else console.log("✓ /Muhammad-Shahwaiz-CV.pdf");
 
 const head = await fetch(base + "/");
 for (const h of ["x-content-type-options", "referrer-policy", "x-frame-options"]) {

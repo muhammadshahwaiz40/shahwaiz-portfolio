@@ -35,14 +35,6 @@ export const roles: Role[] = [
     show: true,
   },
   {
-    title: "Transcription Typist",
-    org: "TranscribeMe",
-    period: "Mar 2023 – Dec 2024",
-    place: "Remote",
-    points: ["Transcribed and proofread audio and video to client formatting standards."],
-    show: true,
-  },
-  {
     title: "Data Entry Clerk",
     org: "Silver Star Enterprises",
     period: "Jan – Mar 2022",
@@ -73,8 +65,8 @@ export const topRecognition: Recognition[] = [
     },
   },
   {
-    title: "Finalist, National Idea Bank IV",
-    detail: "Founders Edge / ASPIRE Pakistan pre-incubation programme, with Menzync.",
+    title: "Finalist, National Idea Bank IV Pre-Incubation",
+    detail: "One of 24 startups selected by ASPIRE Pakistan (Founders Edge), with Menzync.",
     year: "2026",
   },
   {

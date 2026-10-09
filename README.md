@@ -56,7 +56,17 @@ Editing content: see [`docs/content-editing.md`](docs/content-editing.md).
 
 ## Deploying
 
-Live at **https://shahwaiz.me** (Vercel project `shahwaiz-portfolio`). To ship a change:
+Live at **https://shahwaiz.me** (Vercel project `shahwaiz-portfolio`, connected to this GitHub repo).
+
+**Every push to `main` deploys to production automatically.** Pushes to other branches create protected preview deployments. Run the checks before pushing:
+
+```bash
+npm run check
+git push
+SMOKE_URL=https://shahwaiz.me npm run smoke   # after the deploy finishes
+```
+
+Manual deploys still work if needed:
 
 ```bash
 npm run check

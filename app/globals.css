@@ -813,3 +813,54 @@ details[open] .plus {
   display: block;
   mix-blend-mode: multiply;
 }
+
+/* ── Team cards (case studies) ────────────────────────── */
+.team-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: minmax(0, 1fr);
+  list-style: none;
+}
+@media (min-width: 640px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.team-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--rule-paper);
+  border-radius: 14px;
+  background: var(--paper-2);
+}
+.team-card.is-founder {
+  border-color: var(--accent-on-paper);
+}
+.team-initials {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--text-dark);
+  color: var(--paper);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+}
+.team-card.is-founder .team-initials {
+  background: var(--accent-on-paper);
+  color: #fff;
+}
+.team-title {
+  display: inline-block;
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-on-paper);
+}

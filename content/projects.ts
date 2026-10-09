@@ -31,6 +31,7 @@ export type Project = {
   caseStudy?: {
     stageNote: string;
     role: string[];
+    team?: { intro: string; members: { name: string; title: string; focus: string; isMe?: boolean }[] };
     architectureIntro: string;
     architecture: { label: string; detail: string }[];
     sections: CaseSection[];
@@ -192,13 +193,23 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       stageNote:
-        "Research and a local prototype, kept deliberately separate. The prototype doesn't run any emotion model yet. It is an FYP and early-stage startup project, a finalist in National Idea Bank IV 2026.",
+        "Research and a local prototype, kept deliberately separate. The prototype doesn't run any emotion model yet. It is our Final Year Project and an early-stage startup, selected as one of 24 startups in the National Idea Bank IV 2026 pre-incubation programme.",
       role: [
-        "Founder: Menzync was my idea. I lead it and own the ML/AI architecture; my FYP teammates are co-founders.",
-        "Built Roman Urdu / English text classification, from a TF-IDF + linear SVM baseline to XLM-RoBERTa, with a Gradio demo.",
-        "Built the local prototype's API and data handling, with tests for account isolation and validation.",
-        "Wrote the evaluation and data-audit tooling used by the research track.",
+        "I founded Menzync and lead the team, setting its direction and owning the ML/AI architecture.",
+        "Developed the Roman Urdu / English text-classification work, progressing from a TF-IDF + linear SVM baseline to XLM-RoBERTa, with a Gradio demo.",
+        "Designed the local prototype's API and data layer, with automated tests for account isolation and input validation.",
+        "Built the evaluation and data-audit tooling that keeps the research track measurable and accountable.",
       ],
+      team: {
+        intro:
+          "Menzync is a team effort, built as our Final Year Project. I founded it; each co-founder owns a core part of the work.",
+        members: [
+          { name: "Muhammad Shahwaiz", title: "Founder", focus: "Team lead · ML/AI architecture", isMe: true },
+          { name: "Zuha", title: "Co-founder", focus: "Research & Product" },
+          { name: "Rahimah", title: "Co-founder", focus: "Machine Learning & AI" },
+          { name: "Muniza", title: "Co-founder", focus: "Full-Stack Development" },
+        ],
+      },
       architectureIntro:
         "Two tracks that meet only when a model has been evaluated well enough to connect. That hasn't happened yet, and the site doesn't pretend otherwise.",
       architecture: [

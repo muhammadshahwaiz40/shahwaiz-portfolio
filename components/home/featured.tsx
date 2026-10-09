@@ -130,7 +130,7 @@ function MenzyncFeature({ p }: { p: Project }) {
           <Header p={p} index="02" />
           <p className="mt-5 text-sm">
             <span className="text-[var(--accent-on-dark)]">National Idea Bank IV 2026 finalist (1 of 24 startups)</span>
-            <span className="muted"> · Founder, building it as my FYP with my team</span>
+            <span className="muted"> · Founder, with co-founders Zuha, Rahimah and Muniza</span>
           </p>
           <div className="mt-6">
             <Stack items={p.stack} />

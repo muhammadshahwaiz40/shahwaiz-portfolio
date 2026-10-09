@@ -113,6 +113,33 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
             </div>
           </section>
 
+          {cs.team && (
+            <section aria-labelledby="team" className="lg:col-span-12">
+              <div className="grid gap-8 lg:grid-cols-12">
+                <div className="lg:col-span-4">
+                  <h2 id="team" className="h3">
+                    The team
+                  </h2>
+                  <p className="muted mt-4">{cs.team.intro}</p>
+                </div>
+                <ul className="team-grid lg:col-span-7 lg:col-start-6">
+                  {cs.team.members.map((m) => (
+                    <li key={m.name} className={`team-card ${m.isMe ? "is-founder" : ""}`} data-spotlight>
+                      <span className="team-initials" aria-hidden="true">
+                        {m.isMe ? "MS" : m.name[0]}
+                      </span>
+                      <span>
+                        <span className="block font-semibold tracking-tight">{m.name}</span>
+                        <span className="team-title">{m.title}</span>
+                        <span className="muted mt-1 block text-[0.92rem]">{m.focus}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          )}
+
           {p.screens && (
             <section aria-labelledby="product" className="lg:col-span-12">
               <div className="flex flex-wrap items-end justify-between gap-4">

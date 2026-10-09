@@ -31,7 +31,7 @@ export function Approach() {
   return (
     <section aria-labelledby="approach-title" className="surface-dark section">
       <div className="wrap">
-        <div className="grid gap-8 lg:grid-cols-12">
+        <div className="reveal grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="eyebrow">How I work</p>
             <h2 id="approach-title" className="h2 mt-4">
@@ -45,7 +45,7 @@ export function Approach() {
         </div>
         <ol className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-[var(--rule-dark)] bg-[var(--rule-dark)] sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it, i) => (
-            <li key={it.title} className="flex flex-col bg-[var(--graphite)] p-6 sm:p-7">
+            <li key={it.title} className="reveal flex flex-col bg-[var(--graphite)] p-6 sm:p-7" data-spotlight>
               <span className="serif-em text-2xl text-[var(--accent-on-dark)]">0{i + 1}</span>
               <h3 className="mt-4 text-lg font-semibold tracking-tight">{it.title}</h3>
               <p className="muted mt-2 flex-1 text-[0.95rem]">{it.text}</p>

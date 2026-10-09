@@ -63,3 +63,9 @@ DNS at Namecheap: `A @ 76.76.21.21`, `CNAME www cname.vercel-dns.com.`; email-fo
 
 - URL-prefix property `https://shahwaiz.me/` verified with the HTML meta tag (`verification.google` in `app/layout.tsx`; removing it un-verifies the property).
 - `sitemap.xml` submitted. Search Console showed "Couldn't fetch" immediately after submission. The file itself returns 200 `application/xml` to a Googlebot user agent with 5 valid URLs, so this is the usual first-fetch delay for a new property; re-check the Sitemaps report in a day or two.
+
+## Design upgrade — 10 Oct 2026
+
+Added: real NextAct screenshots (captured from nextact.tech, no forms submitted) in a browser-frame showcase on the homepage and a full-size gallery in the case study; Ctrl/⌘K command menu; proof strip of verifiable highlights; "now" status and live PKT clock; pointer spotlight; scroll-driven reveals (CSS `animation-timeline`, progressive); route title morph with React `<ViewTransition>`. All motion is disabled under `prefers-reduced-motion`.
+
+Local production build: axe-core 0 violations on 6 pages × 2 viewports; no overflow at 320/390/1440; no console errors; palette, showcase tabs and lightbox keyboard-tested; Lighthouse (mobile, simulated) Performance 95, Accessibility 100, Best Practices 100, LCP 2.7 s, CLS 0.

@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { CommandPalette } from "@/components/command-palette";
+import { Spotlight } from "@/components/fx";
+import { buildCommands } from "@/lib/commands";
 import { profile } from "@/content/profile";
 import { indexable, siteDescription, siteTitle, siteUrl } from "@/lib/site";
 import "./globals.css";
@@ -69,6 +72,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
+        <CommandPalette commands={buildCommands()} email={profile.email} />
+        <Spotlight />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}

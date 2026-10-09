@@ -36,7 +36,12 @@ export type Project = {
     sections: CaseSection[];
   };
   image?: { src: string; width: number; height: number; alt: string };
+  // Real product screenshots, captured from the live product (not mock-ups).
+  screens?: Screen[];
+  mobileScreen?: Screen;
 };
+
+export type Screen = { id: string; label: string; src: string; width: number; height: number; alt: string; caption: string };
 
 export const projects: Project[] = [
   {
@@ -49,6 +54,53 @@ export const projects: Project[] = [
     category: "featured",
     stack: ["Next.js", "TypeScript", "pnpm monorepo", "Zod", "Drizzle", "Vitest", "Manifest V3"],
     links: [{ label: "Visit nextact.tech", href: "https://nextact.tech" }],
+    screens: [
+      {
+        id: "result",
+        label: "Result",
+        src: "/images/nextact/result.webp",
+        width: 1600,
+        height: 1053,
+        alt: "NextAct result for a payment-change message: 'Do not proceed yet', a safer way to check, and a plain-language summary marked high risk.",
+        caption: "A real NextAct result for a synthetic payment-change message, rendered by the product with AI off.",
+      },
+      {
+        id: "landing",
+        label: "Landing",
+        src: "/images/nextact/landing.webp",
+        width: 1600,
+        height: 1000,
+        alt: "NextAct homepage: 'Verify before you act' with an illustrated sample result.",
+        caption: "The public homepage at nextact.tech. The sample on the right is labelled as an illustration.",
+      },
+      {
+        id: "method",
+        label: "Method",
+        src: "/images/nextact/method.webp",
+        width: 1600,
+        height: 1000,
+        alt: "NextAct 'How NextAct decides' page showing six steps: claims, evidence, independence, unknowns, policy, what to do.",
+        caption: "The published method: deterministic steps, with AI kept outside the risk decision.",
+      },
+      {
+        id: "check",
+        label: "Check",
+        src: "/images/nextact/check.webp",
+        width: 1600,
+        height: 1000,
+        alt: "NextAct payment check form with a message box, file upload and made-up examples.",
+        caption: "Starting a check. No account needed; one-time codes and card numbers are removed before analysis.",
+      },
+    ],
+    mobileScreen: {
+      id: "mobile",
+      label: "Mobile",
+      src: "/images/nextact/mobile.webp",
+      width: 520,
+      height: 1040,
+      alt: "NextAct homepage on a phone.",
+      caption: "nextact.tech on a 390px phone screen.",
+    },
     contribution: [
       "Case-submission and browser-extension APIs",
       "Workspace-scoped database access",

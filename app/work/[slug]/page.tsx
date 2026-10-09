@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import { caseStudySlugs, getProject, projects } from "@/content/projects";
 import { BulletList, ProjectLinks, Stack, StageBadges } from "@/components/project-bits";
+import { ScreenGallery } from "@/components/screen-gallery";
 
 export const dynamicParams = false;
 
@@ -58,9 +60,11 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-8">
               <StageBadges project={p} />
-              <h1 id="cs-title" className="display mt-6">
-                {p.name}
-              </h1>
+              <ViewTransition name={`title-${p.slug}`} share="morph" default="none">
+                <h1 id="cs-title" className="display mt-6">
+                  {p.name}
+                </h1>
+              </ViewTransition>
               <p className="serif-em mt-3 text-[clamp(1.5rem,3vw,2.2rem)] leading-snug text-[var(--accent-on-dark)]">
                 {p.tagline}
               </p>
@@ -108,6 +112,20 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
               <BulletList items={cs.role} />
             </div>
           </section>
+
+          {p.screens && (
+            <section aria-labelledby="product" className="lg:col-span-12">
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <h2 id="product" className="h3">
+                  The product
+                </h2>
+                <p className="muted text-sm">Screenshots captured from the live site. Select one to view it full size.</p>
+              </div>
+              <div className="mt-8">
+                <ScreenGallery screens={p.screens} />
+              </div>
+            </section>
+          )}
 
           <section aria-labelledby="arch" className="lg:col-span-12">
             <div className="grid gap-8 lg:grid-cols-12">

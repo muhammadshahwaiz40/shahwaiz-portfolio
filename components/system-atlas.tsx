@@ -57,7 +57,7 @@ export function SystemAtlas() {
         <ol className="relative grid gap-3 pl-10" aria-label="How my projects handle uncertainty">
           {nodes.map((n) => (
             <li key={n.label}>
-              <Link href={n.href} className="atlas-node">
+              <Link href={n.href} className="atlas-node" data-spotlight>
                 <span className="atlas-dot" aria-hidden="true" />
                 <span className="flex items-baseline justify-between gap-3">
                   <span className="font-semibold tracking-tight">{n.label}</span>

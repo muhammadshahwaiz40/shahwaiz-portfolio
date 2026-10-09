@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { nav } from "@/lib/site";
 import { Monogram } from "./monogram";
+import { CommandButton } from "./command-palette";
 
 export function SiteHeader({ name }: { name: string }) {
   const [open, setOpen] = useState(false);
@@ -49,7 +50,8 @@ export function SiteHeader({ name }: { name: string }) {
           <span className="text-[0.95rem] font-semibold tracking-tight">{name}</span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+        <nav aria-label="Primary">
           <ul className="flex items-center gap-1">
             {nav.map((item) => (
               <li key={item.href}>
@@ -64,6 +66,8 @@ export function SiteHeader({ name }: { name: string }) {
             ))}
           </ul>
         </nav>
+        <CommandButton />
+        </div>
 
         <button
           ref={buttonRef}

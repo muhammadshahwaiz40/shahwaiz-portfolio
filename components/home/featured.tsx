@@ -2,6 +2,8 @@ import Link from "next/link";
 import { getProject, type Project } from "@/content/projects";
 import { ProjectViews, type View } from "@/components/project-views";
 import { BulletList, ProjectLinks, Stack, StageBadges } from "@/components/project-bits";
+import { ProductShowcase } from "@/components/product-showcase";
+import { ViewTransition } from "react";
 
 function viewsFor(p: Project): View[] {
   const views: View[] = [];
@@ -37,56 +39,46 @@ function Header({ p, index }: { p: Project; index: string }) {
         <span className="idx serif-em text-2xl leading-none">{index}</span>
         <StageBadges project={p} />
       </div>
-      <h3 id={`${p.slug}-title`} className="h2 mt-5">
-        {p.name}
-      </h3>
+      <ViewTransition name={`title-${p.slug}`} share="morph" default="none">
+        <h3 id={`${p.slug}-title`} className="h2 mt-5">
+          {p.name}
+        </h3>
+      </ViewTransition>
       <p className="serif-em mt-2 text-[1.45rem] leading-snug">{p.tagline}</p>
       <p className="muted mt-5 measure">{p.summary}</p>
     </>
   );
 }
 
-/* NextAct: paper spread, the decision chain as the visual. */
+/* NextAct: paper spread with the real product in a browser frame. */
 function NextActFeature({ p }: { p: Project }) {
   const chain = ["Claims", "Evidence", "Contradictions", "Unknowns", "Risk", "Safest next step"];
   return (
-    <article id={p.slug} aria-labelledby={`${p.slug}-title`} className="surface-paper section">
-      <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-8">
-        <div className="lg:col-span-6">
+    <article id={p.slug} aria-labelledby={`${p.slug}-title`} className="surface-paper section overflow-hidden">
+      <div className="wrap reveal grid gap-14 lg:grid-cols-12 lg:gap-10">
+        <div className="lg:col-span-5">
           <Header p={p} index="01" />
-          <div className="mt-6">
+          <ol className="chain mt-7" aria-label="What a NextAct result contains">
+            {chain.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ol>
+          <p className="muted mt-3 text-sm">
+            A result never says &ldquo;safe&rdquo;. The strongest one says no material risk was observed, and shows which
+            facts were verified.
+          </p>
+          <div className="mt-7">
             <Stack items={p.stack} />
           </div>
           <div className="mt-8">
             <ProjectLinks project={p} />
           </div>
-        </div>
-        <div className="lg:col-span-6 lg:pl-6">
-          <figure className="rounded-2xl border border-[var(--rule-paper)] bg-[var(--paper-2)] p-6 sm:p-8">
-            <figcaption className="eyebrow">What a result contains</figcaption>
-            <ol className="mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
-              {chain.map((c, i) => (
-                <li
-                  key={c}
-                  className={`rounded-lg border px-3 py-3 text-[0.92rem] font-semibold leading-tight ${
-                    i === chain.length - 1
-                      ? "border-[var(--accent-on-paper)] bg-[var(--accent-on-paper)] text-white"
-                      : "border-[var(--rule-paper)] bg-[var(--paper)]"
-                  }`}
-                >
-                  <span className="serif-em mr-1.5 font-normal opacity-70">{i + 1}</span>
-                  {c}
-                </li>
-              ))}
-            </ol>
-            <p className="muted mt-5 text-sm">
-              A result never says &ldquo;safe&rdquo;. The strongest one says no material risk was observed, and shows
-              which facts were verified.
-            </p>
-          </figure>
-          <div className="mt-10">
+          <div className="mt-12">
             <ProjectViews views={viewsFor(p)} label={`${p.name} details`} />
           </div>
+        </div>
+        <div className="lg:sticky lg:top-24 lg:col-span-7 lg:self-start">
+          {p.screens && <ProductShowcase screens={p.screens} mobile={p.mobileScreen} url="https://nextact.tech" />}
         </div>
       </div>
     </article>
@@ -97,7 +89,7 @@ function NextActFeature({ p }: { p: Project }) {
 function MenzyncFeature({ p }: { p: Project }) {
   return (
     <article id={p.slug} aria-labelledby={`${p.slug}-title`} className="surface-raised section">
-      <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-8">
+      <div className="wrap reveal grid gap-12 lg:grid-cols-12 lg:gap-8">
         <div className="order-2 lg:order-1 lg:col-span-6 lg:pr-6">
           <figure className="rounded-2xl border border-[var(--rule-dark)] p-6 sm:p-8">
             <figcaption className="eyebrow">Two tracks, kept apart on purpose</figcaption>
@@ -161,7 +153,7 @@ function EmoSenseFeature({ p }: { p: Project }) {
   ];
   return (
     <article id={p.slug} aria-labelledby={`${p.slug}-title`} className="surface-paper section rule-t">
-      <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-8">
+      <div className="wrap reveal grid gap-12 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <Header p={p} index="03" />
           <div className="mt-6">
@@ -216,7 +208,7 @@ export function FeaturedWork() {
   return (
     <section id="work" aria-labelledby="work-title">
       <div className="surface-paper">
-        <div className="wrap rule-b flex flex-wrap items-end justify-between gap-6 pt-20 pb-10 md:pt-28">
+        <div className="wrap reveal rule-b flex flex-wrap items-end justify-between gap-6 pt-20 pb-10 md:pt-28">
           <div>
             <p className="eyebrow">Selected work</p>
             <h2 id="work-title" className="h2 mt-4 max-w-2xl">

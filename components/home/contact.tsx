@@ -6,7 +6,7 @@ export function Contact() {
     <section id="contact" aria-labelledby="contact-title" className="surface-paper section">
       <div className="wrap">
         <p className="eyebrow">Contact</p>
-        <h2 id="contact-title" className="display mt-5 max-w-4xl">
+        <h2 id="contact-title" className="reveal display mt-5 max-w-4xl">
           Building something that needs to be <span className="serif-em">right</span>? Let&apos;s talk.
         </h2>
         <p className="lede muted mt-6">

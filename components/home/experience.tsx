@@ -35,7 +35,7 @@ export function Experience() {
           </h2>
           <ol className="mt-10 grid gap-4">
             {topRecognition.map((r) => (
-              <li key={r.title} className="rounded-2xl border border-[var(--rule-paper)] bg-[var(--paper-2)] p-6">
+              <li key={r.title} className="reveal rounded-2xl border border-[var(--rule-paper)] bg-[var(--paper-2)] p-6">
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="text-lg font-semibold leading-snug tracking-tight">{r.title}</h3>
                   <span className="serif-em text-xl text-[var(--accent-on-paper)]">{r.year}</span>

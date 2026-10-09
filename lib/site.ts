@@ -11,7 +11,7 @@ export const indexable = process.env.VERCEL_ENV
 
 export const siteTitle = `${profile.name} — ${profile.positioning}`;
 export const siteDescription =
-  "Final-year Software Engineering student and Menzync co-founder building Python and TypeScript backends, AI integrations and automated tests.";
+  "Final-year Software Engineering student and Menzync founder building Python and TypeScript backends, AI integrations and automated tests.";
 
 export const nav = [
   { href: "/work", label: "Work" },

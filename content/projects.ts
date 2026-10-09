@@ -142,7 +142,7 @@ export const projects: Project[] = [
       stageNote:
         "Research and a local prototype, kept deliberately separate. The prototype doesn't run any emotion model yet. It is an FYP and early-stage startup project, a finalist in National Idea Bank IV 2026.",
       role: [
-        "Co-founder and FYP developer, responsible for the ML/AI architecture.",
+        "Founder: Menzync was my idea. I lead it and own the ML/AI architecture; my FYP teammates are co-founders.",
         "Built Roman Urdu / English text classification, from a TF-IDF + linear SVM baseline to XLM-RoBERTa, with a Gradio demo.",
         "Built the local prototype's API and data handling, with tests for account isolation and validation.",
         "Wrote the evaluation and data-audit tooling used by the research track.",

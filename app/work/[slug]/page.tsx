@@ -126,7 +126,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
                   {cs.team.members.map((m) => (
                     <li key={m.name} className={`team-card ${m.isMe ? "is-founder" : ""}`} data-spotlight>
                       <span className="team-initials" aria-hidden="true">
-                        {m.isMe ? "MS" : m.name[0]}
+                        {m.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
                       </span>
                       <span>
                         <span className="block font-semibold tracking-tight">{m.name}</span>

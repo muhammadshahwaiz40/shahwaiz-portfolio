@@ -57,15 +57,6 @@ export const projects: Project[] = [
     links: [{ label: "Visit nextact.tech", href: "https://nextact.tech" }],
     screens: [
       {
-        id: "result",
-        label: "Result",
-        src: "/images/nextact/result.webp",
-        width: 1600,
-        height: 1053,
-        alt: "NextAct result for a payment-change message: 'Do not proceed yet', a safer way to check, and a plain-language summary marked high risk.",
-        caption: "A real NextAct result for a synthetic payment-change message, rendered by the product with AI off.",
-      },
-      {
         id: "landing",
         label: "Landing",
         src: "/images/nextact/landing.webp",
@@ -91,6 +82,15 @@ export const projects: Project[] = [
         height: 1000,
         alt: "NextAct payment check form with a message box, file upload and made-up examples.",
         caption: "Starting a check. No account needed; one-time codes and card numbers are removed before analysis.",
+      },
+      {
+        id: "result",
+        label: "Result",
+        src: "/images/nextact/result.webp",
+        width: 1600,
+        height: 1053,
+        alt: "NextAct result for a payment-change message: 'Do not proceed yet', a safer way to check, and a plain-language summary marked high risk.",
+        caption: "A real NextAct result for a synthetic payment-change message, rendered by the product with AI off.",
       },
     ],
     mobileScreen: {
@@ -205,9 +205,9 @@ export const projects: Project[] = [
           "Menzync is a team effort, built as our Final Year Project. I founded it; each co-founder owns a core part of the work.",
         members: [
           { name: "Muhammad Shahwaiz", title: "Founder", focus: "Team lead · ML/AI architecture", isMe: true },
-          { name: "Zuha", title: "Co-founder", focus: "Research & Product" },
-          { name: "Rahimah", title: "Co-founder", focus: "Machine Learning & AI" },
-          { name: "Muniza", title: "Co-founder", focus: "Full-Stack Development" },
+          { name: "Zuha Kamal", title: "Co-founder", focus: "Research & Product" },
+          { name: "Rahimah Faisal", title: "Co-founder", focus: "Machine Learning & AI" },
+          { name: "Muniza Ansir", title: "Co-founder", focus: "Full-Stack Development" },
         ],
       },
       architectureIntro:

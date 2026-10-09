@@ -1,0 +1,483 @@
+@import "tailwindcss";
+
+/* ── Tokens ───────────────────────────────────────────── */
+:root {
+  --graphite: #111318;
+  --raised: #1b1f27;
+  --raised-2: #232834;
+  --paper: #f3f0e9;
+  --paper-2: #e9e4d8;
+  --text-light: #f7f5ef;
+  --text-light-muted: #b4b6bd;
+  --text-dark: #171a20;
+  --text-dark-muted: #4f535c;
+  --accent: #4168f5; /* fills, rules */
+  --accent-on-dark: #8ea6ff; /* text/focus on graphite */
+  --accent-on-paper: #2c4fd6; /* text/focus on paper */
+  --rule-dark: rgb(247 245 239 / 0.14);
+  --rule-paper: rgb(23 26 32 / 0.16);
+
+  --header-h: 4rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --max: 78rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-serif: var(--font-instrument), "Iowan Old Style", Georgia, serif;
+}
+
+/* ── Base ─────────────────────────────────────────────── */
+html {
+  scroll-padding-top: calc(var(--header-h) + 1.5rem);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--graphite);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--graphite);
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-on-dark);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.surface-paper :focus-visible {
+  outline-color: var(--accent-on-paper);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--paper);
+  color: var(--text-dark);
+  font-weight: 600;
+  border-radius: 6px;
+}
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Layout ───────────────────────────────────────────── */
+.wrap {
+  width: 100%;
+  max-width: calc(var(--max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.surface-dark {
+  background: var(--graphite);
+  color: var(--text-light);
+}
+.surface-raised {
+  background: var(--raised);
+  color: var(--text-light);
+}
+.surface-paper {
+  background: var(--paper);
+  color: var(--text-dark);
+}
+
+.section {
+  padding-block: clamp(4.5rem, 10vw, 8rem);
+}
+
+/* ── Type ─────────────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-on-dark);
+}
+.surface-paper .eyebrow {
+  color: var(--accent-on-paper);
+}
+
+.display {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  font-size: clamp(2.5rem, 6.2vw, 5.4rem);
+  text-wrap: balance;
+}
+.h2 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  text-wrap: balance;
+}
+.h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+}
+.serif-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.lede {
+  font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 36rem;
+}
+.measure {
+  max-width: 40rem;
+}
+.muted {
+  color: var(--text-light-muted);
+}
+.surface-paper .muted {
+  color: var(--text-dark-muted);
+}
+.prose-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+.prose-list li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+.prose-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 0.6rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* ── Links & buttons ──────────────────────────────────── */
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  transition: text-decoration-color 0.2s;
+}
+.link:hover {
+  text-decoration-color: currentColor;
+}
+.link-accent {
+  color: var(--accent-on-dark);
+}
+.surface-paper .link-accent {
+  color: var(--accent-on-paper);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #2f55e6;
+}
+.btn-ghost {
+  border: 1px solid var(--rule-dark);
+  color: var(--text-light);
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: var(--text-light-muted);
+}
+.surface-paper .btn-ghost {
+  border-color: var(--rule-paper);
+  color: var(--text-dark);
+}
+.surface-paper .btn-ghost:hover {
+  border-color: var(--text-dark-muted);
+}
+.arrow {
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out);
+}
+.btn:hover .arrow,
+a:hover > .arrow {
+  transform: translateX(3px);
+}
+
+/* ── Badges & chips ───────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  color: var(--text-light-muted);
+}
+.surface-paper .badge {
+  color: var(--text-dark-muted);
+}
+.badge-live {
+  color: #7ddba6;
+}
+.surface-paper .badge-live {
+  color: #146b3a;
+}
+.badge-live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.chips li {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: rgb(247 245 239 / 0.07);
+  color: var(--text-light-muted);
+}
+.surface-paper .chips li {
+  background: rgb(23 26 32 / 0.06);
+  color: var(--text-dark-muted);
+}
+
+.rule-t {
+  border-top: 1px solid var(--rule-dark);
+}
+.surface-paper .rule-t {
+  border-top-color: var(--rule-paper);
+}
+.rule-b {
+  border-bottom: 1px solid var(--rule-dark);
+}
+.surface-paper .rule-b {
+  border-bottom-color: var(--rule-paper);
+}
+
+/* ── Ink line ─────────────────────────────────────────── */
+.ink-path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ink-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: ink-draw 1.8s var(--ease-out) 0.2s forwards;
+  }
+  .fade-in {
+    animation: fade-in 0.8s var(--ease-out) both;
+  }
+}
+@keyframes ink-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* ── Details/summary ──────────────────────────────────── */
+details > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+.plus {
+  display: inline-block;
+  transition: transform 0.2s var(--ease-out);
+}
+details[open] .plus {
+  transform: rotate(45deg);
+}
+
+/* ── System atlas ─────────────────────────────────────── */
+.atlas-node {
+  position: relative;
+  display: block;
+  padding: 1rem 1.1rem 1.05rem 1.1rem;
+  border: 1px solid var(--rule-dark);
+  border-radius: 14px;
+  background: rgb(27 31 39 / 0.72);
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    transform 0.25s var(--ease-out);
+}
+.atlas-node:hover,
+.atlas-node:focus-visible {
+  border-color: var(--accent-on-dark);
+  background: var(--raised-2);
+}
+.atlas-dot {
+  position: absolute;
+  left: calc(10px - 0.4rem - 2.5rem - 1px); /* centre on the spine at x=10px (node sits after pl-10, minus its 1px border) */
+  top: 1.3rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--graphite);
+  border: 2px solid var(--accent-on-dark);
+  transition: background-color 0.2s;
+}
+.atlas-node:hover .atlas-dot,
+.atlas-node:focus-visible .atlas-dot {
+  background: var(--accent-on-dark);
+}
+
+/* ── Project view tabs ───────────────────────────────── */
+.tablist {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule-dark);
+}
+.surface-paper .tablist {
+  border-color: var(--rule-paper);
+}
+.tab {
+  min-height: 2.5rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.75;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+}
+.tab:hover {
+  opacity: 1;
+}
+.tab[aria-selected="true"] {
+  opacity: 1;
+  background: var(--text-light);
+  color: var(--text-dark);
+}
+.surface-paper .tab[aria-selected="true"] {
+  background: var(--text-dark);
+  color: var(--text-light);
+}
+
+/* ── Flow diagram (case studies) ──────────────────────── */
+.flow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: flow;
+  display: grid;
+  gap: 0;
+}
+.flow li {
+  counter-increment: flow;
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--rule-paper);
+}
+.flow li::before {
+  content: counter(flow, decimal-leading-zero);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--accent-on-paper);
+}
+.surface-dark .flow li,
+.surface-raised .flow li {
+  border-top-color: var(--rule-dark);
+}
+.surface-dark .flow li::before,
+.surface-raised .flow li::before {
+  color: var(--accent-on-dark);
+}
+
+.idx {
+  color: var(--accent-on-paper);
+}
+.surface-raised .idx,
+.surface-dark .idx {
+  color: var(--accent-on-dark);
+}

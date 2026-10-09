@@ -1,0 +1,10 @@
+# Never upload private notes, local tooling or QA artefacts to Vercel.
+docs/content-review.md
+docs/screenshots
+.claude
+.next
+node_modules
+*.log
+.env*
+.vercel
+tsconfig.tsbuildinfo

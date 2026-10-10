@@ -1,40 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useRef, useState, useSyncExternalStore, type KeyboardEvent } from "react";
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import type { Screen } from "@/content/projects";
 
-const INTERVAL_MS = 5000;
+const INTERVAL_MS = 3000;
 
-// prefers-reduced-motion as an external store. The server snapshot says "reduce",
-// so the first render never autoplays and hydration matches.
-const REDUCE = "(prefers-reduced-motion: reduce)";
-const subscribeMotion = (cb: () => void) => {
-  const mq = window.matchMedia(REDUCE);
-  mq.addEventListener("change", cb);
-  return () => mq.removeEventListener("change", cb);
-};
-const useReducedMotion = () =>
-  useSyncExternalStore(subscribeMotion, () => window.matchMedia(REDUCE).matches, () => true);
-
-// Browser-framed product screenshots that advance on their own.
-// Autoplay is accessible: it has a pause control, pauses on hover/focus, never starts under
-// prefers-reduced-motion, stops when offscreen or the tab is hidden, and stops for good once
-// the visitor picks a screen. The first screen is server-rendered and readable without JS.
+// Browser-framed product screenshots that advance every 3 seconds, continuously (owner's choice:
+// no pause control). Choosing a tab jumps to that screen and the cycle continues from there.
+// The timer only idles while the showcase is offscreen or the browser tab is hidden, which
+// nobody can see. The first screen is server-rendered and readable without JavaScript.
 export function ProductShowcase({ screens, mobile, url }: { screens: Screen[]; mobile?: Screen; url: string }) {
   const [active, setActive] = useState(0);
-  const reduced = useReducedMotion();
-  // null = no choice yet (autoplay unless reduced motion); true/false = the visitor's explicit choice
-  const [choice, setChoice] = useState<boolean | null>(null);
-  const playing = choice ?? !reduced;
-  const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
   const [pageHidden, setPageHidden] = useState(false);
   const root = useRef<HTMLElement>(null);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const base = useId();
   const current = screens[active];
-  const running = playing && !hovered && visible && !pageHidden;
+  const running = visible && !pageHidden;
 
   useEffect(() => {
     const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.35 });
@@ -55,7 +39,6 @@ export function ProductShowcase({ screens, mobile, url }: { screens: Screen[]; m
 
   const choose = (i: number, focus = false) => {
     const next = (i + screens.length) % screens.length;
-    setChoice(false);
     setActive(next);
     if (focus) tabs.current[next]?.focus();
   };
@@ -74,12 +57,6 @@ export function ProductShowcase({ screens, mobile, url }: { screens: Screen[]; m
       className="showcase relative"
       aria-roledescription="carousel"
       aria-label="NextAct product screens"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={(e) => {
-        if (!e.currentTarget.contains(e.relatedTarget as Node)) setHovered(false);
-      }}
     >
       <div className="showcase-frame" data-spotlight>
         <div className="showcase-bar" aria-hidden="true">
@@ -136,7 +113,7 @@ export function ProductShowcase({ screens, mobile, url }: { screens: Screen[]; m
               onKeyDown={(e) => onKey(e, i)}
             >
               {s.label}
-              {active === i && playing && (
+              {active === i && (
                 <span
                   key={`${active}-${s.id}`}
                   className="tab-progress"
@@ -147,16 +124,8 @@ export function ProductShowcase({ screens, mobile, url }: { screens: Screen[]; m
             </button>
           ))}
         </div>
-        <button
-          type="button"
-          className="play-toggle"
-          onClick={() => setChoice(!playing)}
-          aria-label={playing ? "Pause automatic slideshow" : "Play automatic slideshow"}
-        >
-          <span aria-hidden="true">{playing ? "❚❚" : "▶"}</span>
-        </button>
       </div>
-      <figcaption className="muted mt-3 text-sm" aria-live={playing ? "off" : "polite"}>
+      <figcaption className="muted mt-3 text-sm">
         {current.caption}
       </figcaption>
     </figure>

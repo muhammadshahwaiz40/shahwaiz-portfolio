@@ -892,27 +892,6 @@ details[open] .plus {
     transform: scaleX(1);
   }
 }
-.play-toggle {
-  display: inline-grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  border: 1px solid var(--rule-paper);
-  font-size: 0.7rem;
-  letter-spacing: -0.1em;
-  color: var(--text-dark);
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
-.play-toggle:hover {
-  border-color: var(--text-dark-muted);
-}
-.surface-dark .play-toggle,
-.surface-raised .play-toggle {
-  border-color: var(--rule-dark);
-  color: var(--text-light);
-}
 @media (prefers-reduced-motion: no-preference) {
   .showcase-img.is-active {
     animation: showcase-in 0.9s var(--ease-out);

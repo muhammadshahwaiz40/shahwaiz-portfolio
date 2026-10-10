@@ -6,7 +6,7 @@ export const profile = {
   positioning: "AI Systems & Backend Engineering",
   status: "Final-year BS Software Engineering student",
   menzyncRole: "Founder",
-  location: "Daska, Sialkot, Pakistan",
+  location: "Sialkot, Pakistan",
   timeZone: "PKT · UTC+5",
   email: "shahwaizarts@gmail.com",
   // Fill in locally and set showPhone: true to display it. Kept empty in the repo.
@@ -22,7 +22,7 @@ export const profile = {
   shortBio:
     "I'm a final-year Software Engineering student and the founder of Menzync. I build Python and TypeScript backends, AI integrations and automated tests, with a particular interest in systems that make their evidence and limitations clear.",
   longBio: [
-    "I'm from Daska and study Software Engineering at the University of Management and Technology in Sialkot. My route here wasn't direct: pre-medical studies first, then data-entry work, then software.",
+    "I study Software Engineering at the University of Management and Technology in Sialkot. My route here wasn't direct: pre-medical studies first, then data-entry work, then software.",
     "That early work was about getting messy information exactly right, and the habit carried over. The work I care about most now is AI software that shows where its answers came from, says what it couldn't check, and leaves the important decisions to a person.",
   ],
   aiAssistedNote:
@@ -40,13 +40,13 @@ export const education = [
   },
   {
     title: "Intermediate, Pre-Medical",
-    place: "Superior College, Daska",
+    place: "Superior College",
     period: "2019 – 2021",
     note: "Grade A+",
   },
   {
     title: "Matriculation, Science",
-    place: "Govt. High School, Daska",
+    place: "Govt. High School",
     period: "2016 – 2018",
     note: "Grade A+",
   },

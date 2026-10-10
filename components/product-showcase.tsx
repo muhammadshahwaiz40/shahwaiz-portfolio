@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
 import type { Screen } from "@/content/projects";
 
-const INTERVAL_MS = 3000;
+const INTERVAL_MS = 5000;
 
-// Browser-framed product screenshots that advance every 3 seconds, continuously (owner's choice:
+// Browser-framed product screenshots that advance every 5 seconds, continuously (owner's choice:
 // no pause control). Choosing a tab jumps to that screen and the cycle continues from there.
 // The timer only idles while the showcase is offscreen or the browser tab is hidden, which
 // nobody can see. The first screen is server-rendered and readable without JavaScript.

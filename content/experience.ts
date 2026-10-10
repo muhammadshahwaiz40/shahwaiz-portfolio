@@ -38,7 +38,6 @@ export const roles: Role[] = [
     title: "Data Entry Clerk",
     org: "Silver Star Enterprises",
     period: "Jan – Mar 2022",
-    place: "Daska",
     points: ["Entered and maintained invoice and customer records."],
     show: true,
   },

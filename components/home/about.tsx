@@ -23,7 +23,7 @@ export function About() {
               <Monogram className="h-14 w-14" />
               <div>
                 <p className="serif-em text-[2.6rem] leading-[1.05]">Muhammad Shahwaiz</p>
-                <p className="muted mt-3 text-sm">Daska · Sialkot · Pakistan</p>
+                <p className="muted mt-3 text-sm">Sialkot · Pakistan</p>
               </div>
             </div>
           )}

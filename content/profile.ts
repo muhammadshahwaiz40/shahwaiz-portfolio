@@ -15,7 +15,7 @@ export const profile = {
   github: "https://github.com/muhammadshahwaiz40",
   linkedin: "https://www.linkedin.com/in/muhammad-shahwaiz-591b60285/",
   // Set to a file in /public (e.g. "/Muhammad-Shahwaiz-CV.pdf") to show a CV button.
-  cvPath: "/Muhammad-Shahwaiz-CV.pdf" as string | null,
+  cvPath: null as string | null,
   // Set to an image in /public to replace the monogram.
   headshotPath: "/images/portrait.webp" as string | null,
   headline: "AI systems. Clear evidence. Human judgment.",

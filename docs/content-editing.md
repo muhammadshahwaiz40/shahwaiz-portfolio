@@ -9,7 +9,7 @@ All public content lives in three typed files in `content/`. Edit them, run `npm
 | Headline, short bio, long bio | `headline`, `shortBio`, `longBio` |
 | Menzync role | `menzyncRole`. Also update the line in `components/home/featured.tsx` (MenzyncFeature) |
 | Show the phone number | `showPhone: true` |
-| Update the CV | Edit `cv/cv.html`, then run `npm run cv` to regenerate `public/Muhammad-Shahwaiz-CV.pdf` (needs Edge or Chrome). Keep it public-safe: no date of birth, address, phone or student ID |
+| CV | Not published on the site (removed at the owner's request). The source stays in `cv/cv.html`; `npm run cv` builds `public/Muhammad-Shahwaiz-CV.pdf`, and setting `cvPath` shows the download link again |
 | Change the portrait | Replace `public/images/portrait.webp` (720×900, 4:5). A white background blends into the paper card automatically |
 | AI-assisted note | `aiAssistedNote` text, `showAiAssistedNote` on/off |
 | Semester GPA | `semesterGpa.show: true` |
